@@ -1,0 +1,737 @@
+/* General Styles */
+* {
+    box-sizing: border-box; /* Applies to all elements */
+}
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Color Variables */
+:root {
+    --primary-color: #0077B6; /* Blue */
+    --secondary-color: #FFA500; /* Orange */
+    --background-color: #f4f4f4; /* Light gray */
+    --text-color: #333; /* Dark gray */
+    --footer-bg: #1a1a1a; /* Dark background */
+    --footer-text: #ccc; /* Light gray */
+}
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire background */
+    z-index: -1; /* Places the video behind other content */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--primary-color), #0056b3); /* Gradient background */
+    padding: 10px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+nav ul li {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    position: relative; /* For the animated underline */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px 0; /* Add padding for better click area */
+}
+
+/* Animated underline effect */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transform: scaleX(0); /* Start with no underline */
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Expand the underline on hover */
+    transform-origin: bottom left;
+}
+
+.nav-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: transform 0.3s ease; /* Add a hover effect to the logo */
+}
+
+.nav-icon:hover {
+    transform: rotate(15deg); /* Rotate the logo slightly on hover */
+}
+
+.color-toggle {
+    display: flex;
+    align-items: center;
+}
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 10px;
+}
+
+.dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Color Toggle Button */
+#colorToggle {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+#colorToggle:hover {
+    background-color: #e69500; /* Darker orange on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+#colorToggle:hover {
+    background-color: #e69500; /* Darker orange on hover */
+}
+
+/* Hero Section Styles */
+.hero {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+#datetime {
+    font-size: 1.5em;
+    margin-top: 10px;
+    opacity: 0.7;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Zakat Info Section */
+/* Zakat Info Section */
+.zakat-info-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.zakat-info-container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add horizontal padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.zakat-info-left,
+.zakat-info-right {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    margin: 0; /* Remove default margin */
+}
+
+.zakat-info-left h2, .zakat-info-right h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.zakat-info-left p, .zakat-info-right p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Zakat Payment Section */
+.zakat-payment-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 0; /* Remove default margin */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.zakat-payment-section h2 {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.zakat-payment-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px; /* Limit the maximum width */
+    width: 100%; /* Ensure full width */
+    padding: 0 20px; /* Add horizontal padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.zakat-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--primary-color);
+    margin: 0; /* Remove default margin */
+}
+
+.zakat-card:hover {
+    transform: translateY(-10px);
+}
+
+.zakat-card i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.zakat-card h3 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.zakat-card a {
+    text-decoration: none;
+}
+
+/* zakat-calculate section */
+.income {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 150px 20px 20px;
+    padding-bottom: 100px;
+}
+/* Form Styles */
+.income #zakatForm {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    border: 2px solid var(--primary-color); /* Added border */
+}
+
+.income #zakatForm h2,
+.income #zakatForm h3 {
+    color: var(--primary-color);
+}
+
+.income #zakatForm label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.income #zakatForm input,
+.income #zakatForm select {
+    width: 100%; /* Ensure all inputs and selects have the same width */
+    margin-top: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.income #zakatForm input[readonly] {
+    background-color: #f9f9f9; /* Light gray background for readonly fields */
+    color: #555; /* Darker text for better readability */
+}
+
+.income #zakatForm button {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%; /* Make button full width */
+}
+
+.income #zakatForm button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.income .total-result {
+    font-size: 18px;
+    color: #28a745; /* Green color for results */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Zakat Calculator Styles */
+.zakat-calculator {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 65px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 120px; /* Add space below the fixed navbar */
+    margin-bottom: 120px;
+
+}
+
+.zakat-calculator h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.zakat-calculator label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.zakat-calculator input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.zakat-calculator input[readonly],
+.zakat-calculator input[disabled] {
+    background-color: #f9f9f9;
+    color: #555;
+}
+
+.zakat-calculator button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.zakat-calculator button:hover {
+    background-color: var(--secondary-color);
+}
+
+.zakat-calculator p {
+    text-align: center;
+    color: #ff0000;
+    margin-top: 10px;
+}
+
+/* About Page Styles */
+/* About Page Styles */
+body.about-page {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 80px;
+    margin: 0;
+}
+
+.about-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Adjust for navbar height */
+    padding-top: 80px; /* Space for fixed navbar */
+    margin: 0;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 700px; /* Adjusted to make the container narrower */
+    width: 100%;
+    padding: 30px 20px; /* Adjusted padding for better spacing */
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the container */
+}
+
+.headingAbout {
+    font-size: 36px; /* Slightly smaller font size */
+    color: var(--text-color);
+    margin-bottom: 30px; /* Reduced margin */
+}
+
+.headingAbout span {
+    color: var(--primary-color);
+}
+
+.profiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Reduced gap between profiles */
+}
+
+.profiles .pyan,
+.profiles .zul {
+    flex-basis: calc(50% - 30px); /* Adjusted flex-basis */
+    max-width: 350px; /* Increased max-width */
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px; /* Increased padding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid var(--primary-color); /* Add this line */
+}
+
+.profiles .pyan:hover,
+.profiles .zul:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.profiles .pyan .profile-img,
+.profiles .zul .profile-img {
+    height: 120px; /* Slightly smaller image */
+    width: 120px; /* Slightly smaller image */
+    border-radius: 50%;
+    margin: 0 auto 10px; /* Reduced margin */
+    display: block;
+    object-fit: cover;
+    transition: filter 0.3s;
+}
+
+.profiles .pyan .profile-img {
+    object-position: center 35%; /* Adjust for Sufyan's picture */
+}
+
+.profiles .zul .profile-img {
+    object-position: center 60%; /* Adjust for Zulfan's picture */
+}
+
+.profiles .pyan .profile-img:hover,
+.profiles .zul .profile-img:hover {
+    filter: grayscale(0);
+}
+
+.profiles .pyan h3,
+.profiles .zul h3 {
+    font-size: 20px; /* Slightly smaller font size */
+    color: var(--text-color);
+    margin: 10px 0 5px;
+}
+
+.profiles .pyan h5,
+.profiles .zul h5 {
+    font-size: 14px; /* Slightly smaller font size */
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.profiles .pyan p,
+.profiles .zul p {
+    font-size: 12px; /* Slightly smaller font size */
+    color: #555;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px; /* Reduced margin */
+}
+
+.social-links a {
+    color: var(--primary-color);
+    font-size: 18px; /* Slightly smaller font size */
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Color Blind Mode Styles */
+body.color-blind-mode {
+    --primary-color: #004D40; /* Dark teal */
+    --secondary-color: #FF8F00; /* Darker orange */
+    --background-color: #E0F2F1; /* Light teal */
+    --text-color: #000; /* Black */
+    --footer-bg: #004D40; /* Dark teal */
+    --footer-text: #fff; /* White */
+
+    /* Font and Line Adjustments for Color Blind Mode */
+    font-weight: bold; /* Make text bold */
+    line-height: 1.8; /* Increase line height for better readability */
+}
+
+body.color-blind-mode .zakat-calculator {
+    border: 3px solid var(--primary-color); /* Thicker border for the form container */
+    padding: 20px; 
+    border-radius: 10px; 
+}
+
+body.color-blind-mode h1,
+body.color-blind-mode h2,
+body.color-blind-mode h3,
+body.color-blind-mode h4,
+body.color-blind-mode h5,
+body.color-blind-mode h6 {
+    font-weight: 900; /* Make headings extra bold */
+}
+
+body.color-blind-mode p {
+    font-weight: bold; /* Make paragraphs bold */
+}
+
+body.color-blind-mode .footer-section ul li a {
+    font-weight: bold; /* Make footer links bold */
+}
+
+body.color-blind-mode .social-links a {
+    font-weight: bold; /* Make social icons bold */
+}
+
+/* Thicker Lines for Color Blind Mode */
+body.color-blind-mode nav {
+    border-bottom: 4px solid var(--primary-color); /* Thicker border for navbar */
+}
+
+body.color-blind-mode .contact-info button {
+    border: 3px solid var(--secondary-color); /* Thicker border for buttons */
+}
+
+body.color-blind-mode .zakat-card {
+    border: 3px solid var(--primary-color); /* Thicker border for cards */
+}
+
+body.color-blind-mode footer {
+    border-top: 4px solid var(--secondary-color); /* Thicker border for footer */
+}
+
+body.color-blind-mode .footer-section ul li a {
+    border-bottom: 2px solid var(--secondary-color); /* Thicker underline for links */
+}
+
+body.color-blind-mode .social-links a {
+    border: 2px solid var(--primary-color); /* Thicker border for social icons */
+    padding: 5px; /* Add padding for better visibility */
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.footer-section p,
+.footer-section ul {
+    font-size: 1rem;
+    color: var(--footer-text);
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 20px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .contact-info {
+        margin-top: 10px;
+    }
+
+    .headingAbout {
+        font-size: 28px;
+    }
+}

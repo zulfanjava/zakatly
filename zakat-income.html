@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakat Income - zakatly </title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="images/png" href="moon.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="moon.png" alt="Moon Icon" class="nav-icon">
+                </a>
+            </li>
+            <li><a href="index.html">Main</a></li>
+            <li class="dropdown">
+                <a href="zakat-calculator.html">Zakat Calculator</a>
+                <ul class="dropdown-menu">
+                    <li><a href="zakat-income.html">Zakat on Income</a></li>
+                    <li><a href="zakat-gold.html">Zakat on Gold</a></li>
+                    <li><a href="zakat-silver.html">Zakat on Silver</a></li>
+                    <li><a href="zakat-stock.html">Zakat on Stock</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="color-toggle">
+            <button id="colorToggle">Color Blind</button>
+        </div>
+    </nav>
+
+    <main class="income">
+        <form id="zakatForm">
+            <h2>Zakat Income Calculator</h2>
+            <div>
+                <label for="nisab">Nisab Amount:</label>
+                <input type="text" id="nisab" value="RM 2124.00" readonly />
+            </div>
+            <h3>Income Information</h3>
+            <div>
+                <label for="pendapatanBulanan">Monthly Income:</label>
+                <input type="number" id="pendapatanBulanan" placeholder="RM" />
+            </div>
+            <div>
+                <label for="pendapatanTahunan">Annual Income:</label>
+                <input type="number" id="pendapatanTahunan" placeholder="RM" readonly />
+            </div>
+            <div>
+                <label for="pendapatanLain">Other Income (Bonus, Rent, Pension, Gifts):</label>
+                <input type="number" id="pendapatanLain" placeholder="RM" />
+            </div>
+            <h3>Total Zakat</h3>
+            <p id="fail"></p>
+            <div>
+                <label>Total Annual Zakat (2.5%):</label>
+                <span id="zakatSetahun">RM 0.00</span>
+            </div>
+            <div>
+                <label>Total Monthly Zakat:</label>
+                <span id="zakatBulanan">RM 0.00</span>
+            </div>
+            <button type="button" onclick="calculateZakat()">Calculate Zakat</button>
+            <button type="reset" onclick="resetZakat()">Reset</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We are dedicated to providing innovative and user-friendly tools for the Muslim community to manage Zakat effectively.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="zakat-calculator.html">Zakat Calculator</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@Zakatly.com</p>
+                <p>Phone: +601114312979</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Zakatly. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

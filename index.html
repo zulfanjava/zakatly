@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakatly - Zakat Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="images/png" href="moon.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="moon.png" alt="Moon Icon" class="nav-icon">
+                </a>
+            </li>
+            <li><a href="index.html">Main</a></li>
+            <li class="dropdown">
+                <a href="zakat-calculator.html">Zakat Calculator</a>
+                <ul class="dropdown-menu">
+                    <li><a href="zakat-income.html">Zakat on Income</a></li>
+                    <li><a href="zakat-gold.html">Zakat on Gold</a></li>
+                    <li><a href="zakat-silver.html">Zakat on Silver</a></li>
+                    <li><a href="zakat-stock.html">Zakat on Stock</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="color-toggle">
+            <button id="colorToggle">Color Blind</button>
+        </div>
+    </nav>
+
+    <main id="main">
+        <video class="video-background" autoplay muted loop>
+            <source src="images/6000763_Craft_Crafting Beer_3840x2160.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Zakatly</h1>
+                <p id="datetime"></p>
+            </div>
+        </section>
+        <section class="zakat-info-section">
+            <div class="zakat-info-container">
+                <div class="zakat-info-left">
+                    <h2>What is Zakat?</h2>
+                    <p>Zakat is an obligatory form of charity that every (eligible) Muslim must give on their wealth and belongings. It is 2.5% of a Muslim’s wealth, and this fulfils Zakat as a Pillar of Islam. Those who must give Zakat and those who can receive Zakat must meet a certain criterion.</p>
+                </div>
+                <div class="zakat-info-right">
+                    <h2>Who Can Receive Zakat?</h2>
+                    <p>‘Charity is for the poor, the needy, those employed to administer it, those whose hearts have been (recently) reconciled (to the truth), the enslaved, those in debt, those who strive in the path of Allah and the wayfarer. An obligation from Allah, and Allah is the Knowing and the Wise.’ (Surah al-Towbah, 60).</p>
+                </div>
+            </div>
+        </section>
+        <section class="zakat-payment-section">
+            <h2>What Must Pay Zakat on?</h2>
+            <div class="zakat-payment-cards">
+                <div class="zakat-card">
+                    <div class="card-content">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h3>Cash</h3>
+                    </div>
+                </div>
+                <div class="zakat-card">
+                    <div class="card-content">
+                        <i class="fas fa-coins"></i>
+                        <h3>Gold</h3>
+                    </div>
+                </div>
+                <div class="zakat-card">
+                    <div class="card-content">
+                        <i class="fas fa-ring"></i>
+                        <h3>Silver</h3>
+                    </div>
+                </div>
+                <div class="zakat-card">
+                    <div class="card-content">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Stock</h3>
+                    </div>
+                </div>
+                <div class="zakat-card">
+                    <div class="card-content">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Shares</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We are dedicated to providing innovative and user-friendly tools for the Muslim community to manage Zakat effectively.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="zakat-calculator.html">Zakat Calculator</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@Zakatly.com</p>
+                <p>Phone: +601114312979</p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 zakatly. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

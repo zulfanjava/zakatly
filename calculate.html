@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakat Income Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="icon" type="images/png" href="moon.png">
+
+    <script src="script.js" defer></script>
+
+    <style>
+      
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="moon.png" alt="Moon Icon" class="nav-icon">
+                </a>
+            </li>
+            <li><a href="index.html">Main</a></li>
+            <li class="dropdown">
+                <a href="zakat-calculator.html">Zakat Calculator</a>
+                <ul class="dropdown-menu">
+                    <li><a href="calculate.html">Zakat on Income</a></li>
+                    <li><a href="zakat-gold.html">Zakat on Gold</a></li>
+                    <li><a href="zakat-silver.html">Zakat on Silver</a></li>
+                    <li><a href="zakat-stock.html">Zakat on Stock</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <!-- Color Toggle Button -->
+        <div class="color-toggle">
+            <button id="colorToggle">Color Blind</button>
+        </div>
+    </nav>
+    
+
+    <!-- Form Section -->
+    <main class="income">
+        <form id="zakatForm">
+            <h2>Zakat Income Calculator</h2>
+
+            <div>
+                <label for="nisab">Nisab Amount:</label>
+                <input type="text" id="nisab" value="RM 29740.00" readonly />
+            </div>
+
+            <h3>Income Information</h3>
+            <div>
+                <label for="pendapatanBulanan">Monthly Income:</label>
+                <input type="number" id="pendapatanBulanan" placeholder="RM" />
+            </div>
+
+            <div>
+                <label for="pendapatanTahunan">Annual Income:</label>
+                <input type="number" id="pendapatanTahunan" placeholder="RM" readonly />
+            </div>
+
+            <div>
+                <label for="pendapatanLain">Other Income (Bonus, Rent, Pension, Gifts):</label>
+                <input type="number" id="pendapatanLain" placeholder="RM" />
+            </div>
+
+            <h3>Total Zakat</h3>
+            <div>
+                <label>Total Annual Zakat (2.5%):</label>
+                <span id="zakatSetahun">RM 0.00</span>
+            </div>
+
+            <div>
+                <label>Total Monthly Zakat:</label>
+                <span id="zakatBulanan">RM 0.00</span>
+            </div>
+
+            <button type="button" onclick="calculateZakat()">Calculate Zakat</button>
+            <button type="reset" onclick="resetZakat()">Reset</button> <!-- Reset Button -->
+        </form>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>We are dedicated to providing innovative and user-friendly tools for the Muslim community to manage Zakat effectively.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="zakat-calculator.html">Zakat Calculator</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@Zakatly.com</p>
+                <p>Phone: +601114312979</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 zakatly. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Function to calculate Annual Income and Zakat
+        function calculateZakat() {
+            // Get the monthly income input value
+            const monthlyIncome = parseFloat(document.getElementById('pendapatanBulanan').value) || 0;
+            const otherIncome = parseFloat(document.getElementById('pendapatanLain').value) || 0;
+    
+            // Calculate annual income (monthly income * 12 + other income)
+            const annualIncome = (monthlyIncome * 12) + otherIncome;
+    
+            // Update the Annual Income field
+            document.getElementById('pendapatanTahunan').value = annualIncome.toFixed(2);
+    
+            // Calculate Zakat (2.5% of annual income)
+            const annualZakat = annualIncome * 0.025;
+            const monthlyZakat = annualZakat / 12;
+    
+            // Update the Zakat fields
+            document.getElementById('zakatSetahun').textContent = `RM ${annualZakat.toFixed(2)}`;
+            document.getElementById('zakatBulanan').textContent = `RM ${monthlyZakat.toFixed(2)}`;
+        }
+    
+        // Function to reset Zakat values
+        function resetZakat() {
+            // Reset the Zakat fields to default values
+            document.getElementById('pendapatanBulanan').value = '';
+            document.getElementById('pendapatanTahunan').value = '';
+            document.getElementById('pendapatanLain').value = '';
+            document.getElementById('zakatSetahun').textContent = 'RM 0.00';
+            document.getElementById('zakatBulanan').textContent = 'RM 0.00';
+        }
+    
+        // Function to toggle and persist Color Blind Mode
+        function toggleColorBlindMode() {
+            const body = document.body;
+    
+            if (body.classList.contains('color-blind-mode')) {
+                // Disable Color Blind Mode
+                body.classList.remove('color-blind-mode');
+                localStorage.setItem('colorBlindMode', 'disabled'); // Save preference
+            } else {
+                // Enable Color Blind Mode
+                body.classList.add('color-blind-mode');
+                localStorage.setItem('colorBlindMode', 'enabled'); // Save preference
+            }
+        }
+    
+        // Apply Color Blind Mode if saved in localStorage
+        if (localStorage.getItem('colorBlindMode') === 'enabled') {
+            document.body.classList.add('color-blind-mode');
+        }
+    
+        // Add the Color Blind Mode styles
+        const style = document.createElement('style');
+        style.innerHTML = `
+            body.color-blind-mode {
+                --primary-color: #004D40; /* Dark teal */
+                --secondary-color: #FF8F00; /* Darker orange */
+                --background-color: #E0F2F1; /* Light teal */
+                --text-color: #000; /* Black */
+                --footer-bg: #004D40; /* Dark teal */
+                --footer-text: #fff; /* White */
+    
+                /* Font and Line Adjustments for Color Blind Mode */
+                font-weight: bold; /* Make text bold */
+                line-height: 1.8; /* Increase line height for better readability */
+            }
+    
+            body.color-blind-mode h1,
+            body.color-blind-mode h2,
+            body.color-blind-mode h3,
+            body.color-blind-mode h4,
+            body.color-blind-mode h5,
+            body.color-blind-mode h6 {
+                font-weight: 900; /* Make headings extra bold */
+            }
+    
+            body.color-blind-mode p {
+                font-weight: bold; /* Make paragraphs bold */
+            }
+    
+            body.color-blind-mode .footer-section ul li a {
+                font-weight: bold; /* Make footer links bold */
+            }
+    
+            body.color-blind-mode .social-links a {
+                font-weight: bold; /* Make social icons bold */
+            }
+    
+            /* Thicker Lines for Color Blind Mode */
+            body.color-blind-mode nav {
+                border-bottom: 4px solid var(--primary-color); /* Thicker border for navbar */
+            }
+    
+            body.color-blind-mode .contact-info button {
+                border: 3px solid var(--secondary-color); /* Thicker border for buttons */
+            }
+    
+            body.color-blind-mode .zakat-card {
+                border: 3px solid var(--primary-color); /* Thicker border for cards */
+            }
+    
+            body.color-blind-mode footer {
+                border-top: 4px solid var(--secondary-color); /* Thicker border for footer */
+            }
+    
+            body.color-blind-mode .footer-section ul li a {
+                border-bottom: 2px solid var(--secondary-color); /* Thicker underline for links */
+            }
+    
+            body.color-blind-mode .social-links a {
+                border: 2px solid var(--primary-color); /* Thicker border for social icons */
+                padding: 5px; /* Add padding for better visibility */
+            }
+        `;
+        document.head.appendChild(style);
+    
+        // Add event listener to the toggle button
+        const toggleButton = document.getElementById('colorToggle'); // Correct toggle button ID
+        if (toggleButton) {
+            toggleButton.addEventListener('click', toggleColorBlindMode);
+        }
+    
+        // Automatically calculate Annual Income when Monthly Income changes
+        document.getElementById('pendapatanBulanan').addEventListener('input', function() {
+            const monthlyIncome = parseFloat(this.value) || 0;
+            const annualIncome = monthlyIncome * 12;
+            document.getElementById('pendapatanTahunan').value = annualIncome.toFixed(2);
+        });
+    </script>
+</body>
+</html>
